@@ -11,9 +11,6 @@ const NVIDIA_KEY = process.env.NVIDIA_KEY;
 app.post("/v1/chat/completions", async (req, res) => {
   try {
     const body = { ...req.body };
-
-    // Force correct NVIDIA model
-    body.model = "z-ai/glm5";
     body.stream = false;
 
     const r = await fetch("https://integrate.api.nvidia.com/v1/chat/completions", {
